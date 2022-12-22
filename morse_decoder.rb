@@ -39,5 +39,13 @@ def decode_word(word)
   decoded_word.upcase
 end
 
-decode_word('-- -.--')
+def decode_message(message)
+  word_array = message.split('   ')
+  decode_message = word_array.map{ |word| decode_word(word) }
+  decode_phrase = decode_message.reduce {|accum, word| accum + ' ' + word }
+  puts decode_phrase 
+end 
+
+
+decode_message(" .-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
 
